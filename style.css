@@ -75,6 +75,8 @@ body {
     /* display: none; */
 
     font-size: 1.5rem;
+
+    cursor: pointer;
 }
 
 .flip {
