@@ -4,8 +4,11 @@
     --bg-seashell: rgb(255, 245, 238);
     
     --card-fr: rgb(218, 247, 166);
-    --card-bk: rgb(195,166,247);
+    --card-bk: rgb(100, 149, 237 );
     --card-bk-txt: rgb(166,218,247);
+    --modal-offWhite: rgb(250, 249, 246);
+    --modal-text: rgb(17, 17, 17);
+    --gameBoard: rgb(25, 25, 112);
 }
 
 * {
@@ -18,6 +21,18 @@ body {
     background: var(--bg-seashell);
 
     font-family: 'Righteous', sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#gameBoard {
+
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+    gap: 1rem;
 }
 
 .card {
@@ -42,7 +57,7 @@ body {
     height: 100%;
 
     border-radius: .75rem;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    box-shadow: 0 .75rem 1.25rem -0.625rem rgba(0, 0, 0, 0.6);
 
     backface-visibility: hidden;
 }
@@ -64,4 +79,70 @@ body {
 
 .flip {
     transform: rotateY(180deg);
+}
+
+#gameOver {
+    position: absolute;
+
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal {
+    position: relative;
+}
+
+.modal-card {
+    background: var(--modal-offWhite);
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+
+    max-width: 42.8rem;
+    padding: 20px 32px;
+    margin-inline: auto;
+
+    box-shadow: 0 .2rem .4rem rgba(0,0,0,0.1);
+    border-radius: .5rem;
+}
+
+.title {
+    color: var(--modal-text);
+    font-size: 1.25rem;
+}
+
+button {
+    background: rgb(10, 10, 10);
+    color: rgb(248, 248, 248);
+
+    width: 100px;
+    height: 32px;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: .875rem;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+button:hover {
+    background: rgb(19, 18, 18);
 }

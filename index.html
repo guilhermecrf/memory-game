@@ -27,16 +27,29 @@
 </head>
 
 <body>
-  
-    <div id="icon" class="card" data-icon="bootstrap">
-        <div class="card_front">
-            <img class="icon" src="assets/bootstrap.svg" />
+
+    <section id="gameBoard">
+
+        <div id="icon" class="card" data-icon="bootstrap">
+            <div class="card_front">
+                <img class="icon" src="assets/bootstrap.svg" />
+            </div>
+    
+            <div class="card_back">
+                &lt/&gt
+            </div>
         </div>
 
-        <div class="card_back">
-            &lt/&gt
+    </section>
+
+    <section id="gameOver">
+        
+        <div class="modal-card">
+            <span class="title">Parabéns, você completou o jogo!</span>
+            <button id="restart" onclick="restart()">Restart</button>
         </div>
-    </div>
+        
+    </section>
     
 </body>
 </html>
