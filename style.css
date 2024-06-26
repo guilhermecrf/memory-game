@@ -2,6 +2,10 @@
 
 :root {
     --bg-seashell: rgb(255, 245, 238);
+    
+    --card-fr: rgb(218, 247, 166);
+    --card-bk: rgb(195,166,247);
+    --card-bk-txt: rgb(166,218,247);
 }
 
 * {
@@ -12,4 +16,52 @@
 
 body {
     background: var(--bg-seashell);
+
+    font-family: 'Righteous', sans-serif;
+}
+
+.card {
+    position: relative;
+
+    width: 7.5rem;
+    height: 7.5rem;
+
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.card_front,
+.card_back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: .75rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+    backface-visibility: hidden;
+}
+
+.card_front {
+    background: var(--card-fr);
+
+    transform: rotateY(180deg);
+}
+
+.card_back {
+    background: var(--card-bk);
+    color: var(--card-bk-txt);
+
+    /* display: none; */
+
+    font-size: 1.5rem;
+}
+
+.flip {
+    transform: rotateY(180deg);
 }
