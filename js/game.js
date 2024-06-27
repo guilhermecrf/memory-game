@@ -4,6 +4,19 @@ let game = {
     firstCard : null,
     secondCard : null,
 
+    stacks : [
+        'bootstrap',
+        'css',
+        'electron',
+        'firebase',
+        'html',
+        'js',
+        'mongo',
+        'node',
+        'react',
+        'vue'
+    ],
+
     setCard : function(id) {
         let card = this.cards.filter(card => card.id === id)[0]
         console.log(card)
@@ -44,21 +57,8 @@ let game = {
     },
 
     checkGameOver() {
-
+        return this.cards.filter(card => !card.flipped).length == 0
     },
-
-    stacks : [
-        'bootstrap',
-        'css',
-        'electron',
-        'firebase',
-        'html',
-        'js',
-        'mongo',
-        'node',
-        'react',
-        'vue'
-    ],
 
     cards : null,
 
