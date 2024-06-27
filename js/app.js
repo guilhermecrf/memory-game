@@ -3,34 +3,16 @@ let backCard = 'card_back'
 let CARD = 'card'
 let icon = 'icon'
 
-let stacks = [
-    'bootstrap',
-    'css',
-    'electron',
-    'firebase',
-    'html',
-    'js',
-    'mongo',
-    'node',
-    'react',
-    'vue'
-]
-
-let cards = null
-
 startGame()
 
 function startGame() {
-    cards = createCardsFromStacks(stacks)
-    shuffleCards(cards)
-
-    initializeCards(cards)
+    initializeCards(game.createCardsFromStacks())
 }
 
 function initializeCards(cards) {
     let gameBoard = document.querySelector('#gameBoard')
 
-    cards.forEach(card => {
+    game.cards.forEach(card => {
         let cardElement = document.createElement('div')
         cardElement.id = card.id
         cardElement.classList.add(CARD)
@@ -61,44 +43,6 @@ function createCardFace(face, card, element) {
         cardElementFace.innerHTML = '&lt/&gt'
     }
     element.appendChild(cardElementFace)
-}
-
-function shuffleCards(cards) {
-    let currentIndex = cards.length
-    let randomIndex = 0
-
-    while(currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex)
-        currentIndex--
-
-        [cards[randomIndex], cards[currentIndex]] = [cards[currentIndex], cards[randomIndex]]
-    }
-}
-
-function createCardsFromStacks(stacks) {
-    let cards = []
-
-    stacks.forEach((stack) => {
-        cards.push(createPairFromStack(stack))
-    })
-
-    return cards.flatMap(pair => pair)
-}
-
-function createPairFromStack(stack) {
-    return [{
-        id: createIdWithStack(stack),
-        icon: stack,
-        flipped: false
-    },{
-        id: createIdWithStack(stack),
-        icon: stack,
-        flipped: false
-    }]
-}
-
-function createIdWithStack(stack) {
-    return stack + parseInt(Math.random() * 1000)
 }
 
 function flipCard() {
